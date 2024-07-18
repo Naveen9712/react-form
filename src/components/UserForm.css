@@ -1,9 +1,17 @@
 /* src/components/UserForm.css */
 .container{
-    background-color: aqua;
+    background-color: rgb(64, 87, 87);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .form-heading{
     text-align: center;
+    margin-top: -5rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    
 }
 .user-form {
     max-width: 400px;
