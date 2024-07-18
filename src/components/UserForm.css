@@ -1,4 +1,7 @@
 /* src/components/UserForm.css */
+.container{
+    background-color: aqua;
+}
 .form-heading{
     text-align: center;
 }

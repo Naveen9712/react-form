@@ -28,6 +28,7 @@ const UserForm = () => {
 
   return (
     <>
+    <div className="container">
     <h1 className="form-heading">Create User</h1>
     <form className="user-form" onSubmit={handleSubmit}>
       <div>
@@ -59,6 +60,7 @@ const UserForm = () => {
       </div>
       <button type="submit">Create User</button>
     </form>
+    </div>
     </>
   );
 };
