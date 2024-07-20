@@ -23,11 +23,9 @@ const UserForm = () => {
         formData
       );
       console.log("User created:", response.data);
+      alert("User created successfully!");  // Show success alert
 
-      // Show a success alert
-      alert("User created successfully!");
-
-      // Optionally clear the form after successful submission
+      // Clear input fields after successful submission
       setFormData({
         name: "",
         email: "",
@@ -35,49 +33,47 @@ const UserForm = () => {
       });
     } catch (error) {
       console.error("There was an error creating the user!", error);
-
-      // Show an error alert
-      alert("There was an error creating the user. Please try again.");
+      alert("There was an error creating the user.");  // Show error alert
     }
   };
 
   return (
     <>
-      <div className="container">
+    <div className="container">
         <div>
-          <h1 className="form-heading">Create User</h1>
-          <form className="user-form" onSubmit={handleSubmit}>
-            <div>
-              <label>Name:</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label>Email:</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label>Password:</label>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-              />
-            </div>
-            <button type="submit">Create User</button>
-          </form>
-        </div>
+        <h1 className="form-heading">Create User</h1>
+    <form className="user-form" onSubmit={handleSubmit}>
+      <div>
+        <label>Name:</label>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+        />
       </div>
+      <div>
+        <label>Email:</label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label>Password:</label>
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+        />
+      </div>
+      <button type="submit">Create User</button>
+    </form>
+        </div>
+    </div>
     </>
   );
 };
