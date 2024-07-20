@@ -1,3 +1,4 @@
+// src/components/UserForm.js
 import React, { useState } from "react";
 import axios from "axios";
 import "./UserForm.css";
@@ -16,8 +17,9 @@ const UserForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Update the URL to your Render.com backend URL
       const response = await axios.post(
-        "http://localhost:5000/api/users",
+        "https://backend-form-nslm.onrender.com/api/users",
         formData
       );
       console.log("User created:", response.data);

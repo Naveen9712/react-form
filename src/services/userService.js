@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-    const API_URL = 'http://localhost:5000/api/users';
+const API_URL = 'https://backend-form-nslm.onrender.com/api/users';
 
-    const createUser = (userData) => {
-        return axios.post(API_URL, userData);
-    };
+const createUser = (userData) => {
+    return axios.post(API_URL, userData);
+};
 
-    export default {
-        createUser,
-    };
+export default {
+    createUser,
+};
