@@ -1,0 +1,228 @@
+.searchbar-sidebar .form-control:focus {
+  border-color: #dee2e6 !important;
+  box-shadow: none !important;
+
+}
+
+.left-side-bar-profile {
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 1px solid #dee2e6;
+  border-width: 0 0 1px 0;
+  /* Top, Right, Bottom, Left */
+
+}
+
+.left-side-bar-profile:hover {
+  background-color: #f0f0f0;
+  color: #495057;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.fa-check-double {
+  color: #ccc;
+  /* Adjust the color of the double ticks */
+  font-size: 12px;
+}
+
+/* Your existing CSS styles */
+.row>* {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.chat-text-sent {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  max-width: 40%;
+  border-radius: 8px;
+  background-color: #9e70e9;
+  color: white;
+  padding: 10px;
+  position: relative;
+}
+
+.chat-text-sent::before {
+  display: block;
+  clear: both;
+  content: '';
+  position: absolute;
+  top: 6px;
+  right: -14px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 12px 15px 12px;
+  border-color: transparent transparent #9e70e9 transparent;
+  transform: rotate(88deg);
+}
+
+.chat-text-sent .chat-time {
+  margin-left: 1rem;
+  font-size: 9px;
+  color: #f8f9fa;
+}
+
+
+
+.img-sent-container {
+  margin-top: 22px
+}
+
+.chat-text-received {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #e7e1f2;
+  color: black;
+  margin-left: 16px;
+  position: relative;
+  max-width: 40%;
+}
+
+.chat-text-received::before {
+  display: block;
+  clear: both;
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: -13px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 12px 15px 12px;
+  border-color: transparent transparent #e7e1f2 transparent;
+  transform: rotate(-82deg);
+}
+
+.chat-text-received .chat-time {
+  margin-left: 1rem;
+  font-size: 9px;
+  color: grey;
+}
+
+.chat-username-received {
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.chat-time-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.received-container {
+  margin-left: 1rem;
+}
+
+.sent-container {
+  margin-right: 2rem;
+}
+
+.chat-box-section {
+  height: 66vh;
+  overflow-y: auto;
+  padding-bottom: 50px;
+  padding-right: 15px;
+  /* Add padding-right to compensate for scrollbar width */
+  scrollbar-width: thin;
+  /* Thin scrollbar */
+  scrollbar-color: #ccc transparent;
+  /* Scrollbar color and track color */
+}
+
+.message-input {
+  display: flex;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  z-index: 1;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.message-input input[type="text"] {
+  width: 70%;
+  /* Adjusted width */
+  margin-right: 10px;
+}
+
+.message-input button {
+  width: 15%;
+  /* Adjusted width */
+}
+
+.attachment-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  color: #6c757d;
+}
+
+.left-side-bar {
+  overflow-y: auto;
+  height: 75vh;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.left-side-bar img {
+  border-radius: 25px;
+}
+
+.search-btn {
+  background-color: #fff;
+  border: solid 1px #dee2e6;
+  color: #000;
+  padding: 8px 12px;
+  border-radius: 0 5px 5px 0;
+}
+
+.search-btn:hover {
+  background-color: black;
+  color: #fff;
+}
+
+/* Green dot circle for online status */
+.online-dot {
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+}
+
+/* Red dot circle for offline status */
+.offline-dot {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+}
+
+.profile-header {
+  padding: 14.5px;
+}
+
+.date-background span {
+  background-color: #dee2e6;
+  padding: 5px;
+  border-radius: 5px;
+  color: #495057;
+  font-size: 13px;
+}
