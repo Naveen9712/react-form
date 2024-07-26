@@ -18,7 +18,7 @@ const AddProfile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${config.apiHost}:${config.apiPort}/profiles`, profile);
+      await axios.post(`${config.apiHost}/profiles`, profile);
       alert("Profile added successfully!");
       navigate('/profile');
     } catch (error) {

@@ -10,7 +10,7 @@ const EditChannel = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`${config.apiHost}:${config.apiPort}/channels/${id}`)
+    axios.get(`${config.apiHost}/channels/${id}`)
       .then(response => {
         setName(response.data.name);
         setDisplayName(response.data.display_name);
@@ -22,7 +22,7 @@ const EditChannel = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.put(`http://localhost:8081/channels/${id}`, { name, display_name: displayName })
+    axios.put(`${config.apiHost}/channels/${id}`, { name, display_name: displayName })
       .then(response => {
         console.log('Channel updated successfully:', response);
         alert('channel updated successfully!');

@@ -1,7 +1,5 @@
 const config = {
-    apiHost: 'http://localhost',
-    apiPort: 8081,
-  };
-  
-  export default config;
-  
+  apiHost: 'https://backend-form-gur5.onrender.com',
+};
+
+export default config;

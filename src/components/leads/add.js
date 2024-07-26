@@ -21,10 +21,10 @@ const LeadForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post(`${config.apiHost}:${config.apiPort}/submit-lead`, values)
+        axios.post(`${config.apiHost}/submit-lead`, values)
             .then((res) => {
                 console.log('Lead submitted successfully:', res);
-                navigate('/users-list');
+                navigate('/leads-list');
                 alert('Lead submitted successfully!');
             })
             .catch((err) => {

@@ -9,7 +9,7 @@ const UsersList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`${config.apiHost}:${config.apiPort}/users-list`)
+    axios.get(`${config.apiHost}/users-list`)
       .then(response => {
         setUsers(response.data);
       })
@@ -24,7 +24,7 @@ const UsersList = () => {
 
   const handleDelete = (userId) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
-      axios.delete(`${config.apiHost}:${config.apiPort}/delete-user/${userId}`)
+      axios.delete(`${config.apiHost}/delete-user/${userId}`)
         .then(response => {
           setUsers(users.filter(user => user.id !== userId));
         })

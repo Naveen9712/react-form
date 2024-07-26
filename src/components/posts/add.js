@@ -15,7 +15,7 @@ const AddPost = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`${config.apiHost}:${config.apiPort}/posts`, post);
+            await axios.post(`${config.apiHost}/posts`, post);
             navigate('/posts');
         } catch (error) {
             console.error('Error adding post:', error);

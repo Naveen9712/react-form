@@ -12,7 +12,7 @@ const ChannelsList = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    axios.get(`${config.apiHost}:${config.apiPort}/channels`)
+    axios.get(`${config.apiHost}/channels`)
       .then(response => {
         setChannels(response.data);
       })
@@ -23,7 +23,7 @@ const ChannelsList = () => {
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this channel?")) {
-    axios.delete(`${config.apiHost}:${config.apiPort}/channels/${id}`)
+    axios.delete(`${config.apiHost}/channels/${id}`)
       .then(response => {
         console.log('Channel deleted successfully:', response);
         setChannels(channels.filter(channel => channel.id !== id));

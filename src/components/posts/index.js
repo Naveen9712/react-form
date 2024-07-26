@@ -13,7 +13,7 @@ const Posts = () => {
 
     const fetchPosts = async () => {
         try {
-            const response = await axios.get(`${config.apiHost}:${config.apiPort}/posts`);
+            const response = await axios.get(`${config.apiHost}/posts`);
             setPosts(response.data);
         } catch (error) {
             console.error('Error fetching posts:', error);
@@ -23,7 +23,7 @@ const Posts = () => {
     const deletePost = async (id) => {
         if (window.confirm("Are you sure you want to delete this post?")) {
         try {
-            await axios.delete(`${config.apiHost}:${config.apiPort}/posts/${id}`);
+            await axios.delete(`${config.apiHost}/posts/${id}`);
             fetchPosts();
         } catch (error) {
             console.error('Error deleting post:', error);

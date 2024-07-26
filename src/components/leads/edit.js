@@ -14,7 +14,7 @@ const EditLead = () => {
   });
 
   useEffect(() => {
-    axios.get(`${config.apiHost}:${config.apiPort}/lead/${id}`)
+    axios.get(`${config.apiHost}/lead/${id}`)
       .then(response => {
         setValues(response.data);
       })
@@ -33,7 +33,7 @@ const EditLead = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.put(`${config.apiHost}:${config.apiPort}/update-lead/${id}`, values)
+    axios.put(`${config.apiHost}/update-lead/${id}`, values)
       .then(() => {
         alert('Lead updated successfully');
         navigate('/leads-list');

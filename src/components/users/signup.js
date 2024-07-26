@@ -33,7 +33,7 @@ const Signup = () => {
         setErrors(err);
 
         if (err.name === "" && err.email === "" && err.password === "" && err.confirmPassword === "") {
-            axios.post(`${config.apiHost}:${config.apiPort}/signup`, values)
+            axios.post(`${config.apiHost}/signup`, values)
                 .then((res) => {
                     console.log('Response from server:', res);
                     navigate('/');

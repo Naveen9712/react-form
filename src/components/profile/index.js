@@ -9,7 +9,7 @@ const ProfileList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`${config.apiHost}:${config.apiPort}/profiles`)
+    axios.get(`${config.apiHost}/profiles`)
       .then(response => {
         setProfiles(response.data);
       })
@@ -19,12 +19,12 @@ const ProfileList = () => {
   }, []);
 
   const handleEdit = (id) => {
-    navigate(`/profile/edit/${id}`);
+    navigate(`/edit-profile/${id}`);
   };
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this profile?")) {
-    axios.delete(`${config.apiHost}:${config.apiPort}/delete-profile/${id}`)
+    axios.delete(`${config.apiHost}/delete-profile/${id}`)
       .then(response => {
         console.log('Profile deleted successfully:', response);
         // Remove the profile from state after successful deletion

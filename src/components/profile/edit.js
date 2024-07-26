@@ -15,7 +15,7 @@ const EditProfile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const { data } = await axios.get(`${config.apiHost}:${config.apiPort}/profiles/${id}`);
+        const { data } = await axios.get(`${config.apiHost}/profiles/${id}`);
         setProfile(data);
       } catch (error) {
         console.error("Error fetching profile:", error);
@@ -32,7 +32,7 @@ const EditProfile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`${config.apiHost}:${config.apiPort}/profiles/${id}`, profile);
+      await axios.put(`${config.apiHost}/profiles/${id}`, profile);
       alert("Profile updated successfully!");
       navigate('/profile'); // Redirect to the profiles list after updating
     } catch (error) {

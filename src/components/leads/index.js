@@ -10,7 +10,7 @@ const LeadList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`${config.apiHost}:${config.apiPort}/leads`)
+    axios.get(`${config.apiHost}/leads`)
       .then(response => {
         setLeads(response.data);
       })
@@ -25,7 +25,7 @@ const LeadList = () => {
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this lead?")) {
-    axios.delete(`${config.apiHost}:${config.apiPort}/delete-lead/${id}`)
+    axios.delete(`${config.apiHost}/delete-lead/${id}`)
       .then(response => {
         console.log('Lead deleted successfully:', response);
         // Remove the lead from state after successful deletion

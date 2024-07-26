@@ -9,7 +9,7 @@ const EditUser = () => {
   const [user, setUser] = useState({ name: '', email: '' });
 
   useEffect(() => {
-    axios.get(`${config.apiHost}:${config.apiPort}/user/${id}`)
+    axios.get(`${config.apiHost}/user/${id}`)
       .then(response => {
         setUser(response.data);
       })
@@ -24,7 +24,7 @@ const EditUser = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`${config.apiHost}:${config.apiPort}/update-user/${id}`, user)
+    axios.put(`${config.apiHost}/update-user/${id}`, user)
       .then(response => {
         navigate('/users-list');
         alert('users updated successfully!');

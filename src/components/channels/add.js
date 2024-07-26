@@ -10,7 +10,7 @@ const AddChannel = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post(`${config.apiHost}:${config.apiPort}/channels`, { name, display_name: displayName })
+    axios.post(`${config.apiHost}/channels`, { name, display_name: displayName })
       .then(response => {
         console.log('Channel added successfully:', response);
         navigate('/channels-list');

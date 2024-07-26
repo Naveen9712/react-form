@@ -9,7 +9,7 @@ const EditPost = () => {
   const [post, setPost] = useState({ facebook_id: '', title: '' });
 
   useEffect(() => {
-    axios.get(`${config.apiHost}:${config.apiPort}/posts/${id}`)
+    axios.get(`${config.apiHost}/posts/${id}`)
       .then(response => {
         setPost(response.data);
       })
@@ -24,7 +24,7 @@ const EditPost = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`${config.apiHost}:${config.apiPort}/update-post/${id}`, post)
+    axios.put(`${config.apiHost}/update-post/${id}`, post)
       .then(response => {
         navigate('/posts');
       })

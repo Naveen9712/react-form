@@ -28,7 +28,7 @@ function Login() {
         setErrors(err);
 
         if (err.email === "" && err.password === "") {
-            axios.post(`${config.apiHost}:${config.apiPort}/users`, values)
+            axios.post(`${config.apiHost}/users`, values)
                 .then((res) => {
                     if (res.data === "Success") {
                         navigate('/home');
