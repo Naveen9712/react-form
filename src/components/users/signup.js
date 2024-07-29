@@ -16,6 +16,7 @@ const Signup = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [agreeToTerms, setAgreeToTerms] = useState(false);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
 
@@ -33,12 +34,17 @@ const Signup = () => {
         setErrors(err);
 
         if (err.name === "" && err.email === "" && err.password === "" && err.confirmPassword === "") {
+            setLoading(true);
             axios.post(`${config.apiHost}/signup`, values)
                 .then((res) => {
+                    setLoading(false);
                     console.log('Response from server:', res);
                     navigate('/');
                 })
-                .catch((err) => console.log('Error sending data:', err));
+                .catch((err) => {
+                    setLoading(false);
+                    console.log('Error sending data:', err);
+                });
         }
     };
 
@@ -63,6 +69,7 @@ const Signup = () => {
                             name='name'
                             onChange={handleInput}
                             className='form-control rounded-3'
+                            disabled={loading}
                         />
                         {errors.name && (<span className="text-danger">{errors.name}</span>)}
                     </div>
@@ -74,6 +81,7 @@ const Signup = () => {
                             name="email"
                             onChange={handleInput}
                             className='form-control rounded-3'
+                            disabled={loading}
                         />
                         {errors.email && (<span className="text-danger">{errors.email}</span>)}
                     </div>
@@ -86,6 +94,7 @@ const Signup = () => {
                                 name='password'
                                 onChange={handleInput}
                                 className='form-control rounded-3'
+                                disabled={loading}
                             />
                             <span className="input-group-text" onClick={toggleShowPassword}>
                                 {showPassword ? <FaEyeSlash /> : <FaEye />}
@@ -102,6 +111,7 @@ const Signup = () => {
                                 name='confirmPassword'
                                 onChange={handleInput}
                                 className='form-control rounded-3'
+                                disabled={loading}
                             />
                             <span className="input-group-text" onClick={toggleShowConfirmPassword}>
                                 {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
@@ -116,13 +126,14 @@ const Signup = () => {
                             id='agreeToTerms'
                             checked={agreeToTerms}
                             onChange={() => setAgreeToTerms(!agreeToTerms)}
+                            disabled={loading}
                         />
                         <label className='form-check-label' htmlFor='agreeToTerms'>
                             I agree to the terms and policies
                         </label>
                     </div>
-                    <button type="submit" className='btn btn-success w-100 rounded-3' disabled={!agreeToTerms}>
-                        Sign Up
+                    <button type="submit" className='btn btn-success w-100 rounded-3' disabled={!agreeToTerms || loading}>
+                        {loading ? "Please wait..." : "Sign Up"}
                     </button>
                     <Link to="/" className='text-decoration-none mt-3 d-block text-center'>I have already an account</Link>
                 </form>

@@ -13,6 +13,7 @@ function Login() {
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
+    const [loading, setLoading] = useState(false);
     
     const handleInput = (event) => {
         const { name, value } = event.target;
@@ -28,15 +29,20 @@ function Login() {
         setErrors(err);
 
         if (err.email === "" && err.password === "") {
+            setLoading(true);
             axios.post(`${config.apiHost}/users`, values)
                 .then((res) => {
+                    setLoading(false);
                     if (res.data === "Success") {
                         navigate('/home');
                     } else {
                         alert("No record found");
                     }
                 })
-                .catch((err) => console.log('Error sending data:', err));
+                .catch((err) =>{
+                     setLoading(false);
+                     console.log('Error sending data:', err)
+                    });
         }
     };
 
@@ -59,6 +65,7 @@ function Login() {
                             onChange={handleInput}
                             name="email"
                             className="form-control rounded-3"
+                            disabled={loading}
                         />
                         {errors.email && (
                             <span className="text-danger">{errors.email}</span>
@@ -75,6 +82,7 @@ function Login() {
                                 onChange={handleInput}
                                 name="password"
                                 className="form-control rounded-3"
+                                disabled={loading}
                             />
                             <span className="input-group-text" onClick={toggleShowPassword}>
                                 {showPassword ? <FaEyeSlash /> : <FaEye />}
@@ -84,8 +92,8 @@ function Login() {
                             <span className="text-danger">{errors.password}</span>
                         )}
                     </div>
-                    <button type="submit" className="btn btn-success w-100 rounded-3 mb-3">
-                        Log in
+                    <button type="submit" className="btn btn-success w-100 rounded-3 mb-3" disabled={loading}>
+                    {loading ? "Please wait..." : "Log in"}
                     </button>
                     <div className="d-flex flex-row justify-content-between">
                         <Link to="/signup" className="text-decoration-none">
